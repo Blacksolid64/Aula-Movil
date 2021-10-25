@@ -1,8 +1,8 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Aula_Movil.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Estudiante.master.cs" Inherits="Aula_Movil.Estudiante" %>
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html>
 <head runat="server">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,10 +14,9 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-
 </head>
 <body>
-    <form runat="server">
+   <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
@@ -50,10 +49,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="#">Gestión de cursos</a></li>
-                        <li><a runat="server" href="#">Gestión de estudiantes</a></li>
-                        <li><a runat="server" href="#">Gestión de docentes</a></li>
-                        <li><a runat="server" href="#">Asignación</a></li>
+                        <li><a runat="server" href="#">Noticias</a></li>
+                        <li><a runat="server" href="#">Tareas</a></li>
+                        <li><a runat="server" href="#">Chat</a></li>
+                        <li><a runat="server" href="#">Profesor</a></li>
                     </ul>
                 </div>
             </div>
@@ -66,7 +65,6 @@
                 <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
             </footer>
         </div>
-
     </form>
 </body>
 </html>
