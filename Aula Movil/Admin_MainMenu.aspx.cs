@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using httpRequests.cs;
 
 namespace Aula_Movil
 {
@@ -11,6 +12,9 @@ namespace Aula_Movil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Program program;
+            Program program = new Program();
+            await program.getUsuarios("http://nodejsclusters-55543-0.cloudclusters.net/usuarios");
 
         }
     }
