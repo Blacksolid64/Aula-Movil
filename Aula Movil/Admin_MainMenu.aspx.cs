@@ -19,26 +19,36 @@ namespace Aula_Movil
             {
                 this.populateGridview();
             }
-             //await program.getUsuarios("http://nodejsclusters-55543-0.cloudclusters.net/usuarios");
+            //await program.getUsuarios("http://nodejsclusters-55543-0.cloudclusters.net/usuarios");
 
         }
 
         private void populateGridview()
         {
-            string apiURL = "http://nodejsclusters-55543-0.cloudclusters.net/usuarios";
+            string apiURL = Application["apiURL"].ToString() + "profesores"; // Definición de la URL para el request
             WebClient client = new WebClient();
             string respuesta = client.DownloadString(apiURL);
             GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
             GridView1.DataBind();
         }
-        class Usuario
+        protected void Gr1_OnRowEditing(object sender, GridViewEditEventArgs e)
         {
+            GridView1.EditIndex = e.NewEditIndex;
+            this.populateGridview();
+        }
 
-            public string nombre { set; get; }
-            public string apellido { set; get; }
-            public string contrasenna { set; get; }
-            public string cedula { set; get; }
-            public string correo { set; get; }
+        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GridView1.EditIndex = -1;
+            this.populateGridview();
+        }
+
+        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        {
+            string Ced = Convert.ToString(e.OldValues["cedula"]);
+            GridViewRow row = GridView1.Rows[e.RowIndex];
+            TextBox nombre = (TextBox)row.Cells[1].Controls[0];
+            Response.Write(nombre.Text);
         }
     }
 }
