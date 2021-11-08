@@ -13,6 +13,8 @@ namespace Aula_Movil
 {
     public class APICaller
     {
+        public APICaller(){}
+
         private string RequestAPIData(String url)
         {        
             WebClient client = new WebClient();

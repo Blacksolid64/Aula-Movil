@@ -50,5 +50,174 @@ namespace Aula_Movil
             TextBox nombre = (TextBox)row.Cells[1].Controls[0];
             Response.Write(nombre.Text);
         }
+
+        protected void verMaestros()
+        {
+            string apiURL = Application["apiURL"].ToString() + "profesores";
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);            
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
+            GridView1.DataBind();
+
+        }
+
+        protected void verEstdiantes()
+        {
+            string apiURL = Application["apiURL"].ToString() + "estudiantes";
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
+            GridView1.DataBind();
+        }
+
+        protected void verCursos()
+        {
+            string apiURL = Application["apiURL"].ToString() + "cursos";
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Curso>>(respuesta);
+            GridView1.DataBind();
+        }
+
+        protected void agregarMaestros()
+        {
+            string apiURL = Application["apiURL"].ToString() + "nuevoDocente/";
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            string nom = GridView1.Rows[i].FindControl("nombre"); 
+            string cor = GridView1.Rows[i].FindControl("correo"); 
+            string con = GridView1.Rows[i].FindControl("contraseña"); 
+            string ape = GridView1.Rows[i].FindControl("apellido");
+            apiURL = apiURL + ced + "/" + nom+ "/" + cor + "/" + con+ "/" + ape;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+
+        }
+
+        protected void agregarEstdiantes()
+        {
+            string apiURL = Application["apiURL"].ToString() + "nuevoAlumno/";
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            string nom = GridView1.Rows[i].FindControl("nombre");
+            string cor = GridView1.Rows[i].FindControl("correo");
+            string con = GridView1.Rows[i].FindControl("contraseña");
+            string ape = GridView1.Rows[i].FindControl("apellido");
+            string gra = GridView1.Rows[i].FindControl("grado");
+            apiURL = apiURL + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape + "/" + gra;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void agregarCursos()
+        {
+            string apiURL = Application["apiURL"].ToString() + "nuevoCurso/";
+            string cod = GridView1.Rows[i].FindControl("codigo"); //Probablemente malo
+            string nom = GridView1.Rows[i].FindControl("nombre");
+            string gra = GridView1.Rows[i].FindControl("grado");
+            string dia = GridView1.Rows[i].FindControl("dia de Semana");
+            string ini = GridView1.Rows[i].FindControl("hora de Inicio");
+            string fin = GridView1.Rows[i].FindControl("hora de Final");
+            apiURL = apiURL + cod + "/" + nom + "/" + gra + "/" + dia + "/" + ini + "/" + fin;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void editarMaestros()
+        {
+            string apiURL = Application["apiURL"].ToString() + "updateDocente/";
+            string cedv = GridView1.Rows[i].FindControl("cedula"); //Agarrar item viejo!
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            string nom = GridView1.Rows[i].FindControl("nombre");
+            string cor = GridView1.Rows[i].FindControl("correo");
+            string con = GridView1.Rows[i].FindControl("contraseña");
+            string ape = GridView1.Rows[i].FindControl("apellido");
+            apiURL = apiURL + cedv + "/" + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void editarEstdiantes()
+        {
+            string apiURL = Application["apiURL"].ToString() + "updateAlumno/";
+            string nomv = GridView1.Rows[i].FindControl("nombre"); //Agarrar item viejo
+            string apev = GridView1.Rows[i].FindControl("apellido"); //Agarrar item viejo
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            string nom = GridView1.Rows[i].FindControl("nombre");
+            string cor = GridView1.Rows[i].FindControl("correo");
+            string con = GridView1.Rows[i].FindControl("contraseña");
+            string ape = GridView1.Rows[i].FindControl("apellido");
+            string gra = GridView1.Rows[i].FindControl("grado");
+            apiURL = apiURL + nomv + "/" + apev+ "/" + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape + "/" + gra;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void editarCursos()
+        {
+            string apiURL = Application["apiURL"].ToString() + "updateCurso/";
+            string codv = GridView1.Rows[i].FindControl("codigo"); //Agarrar item viejo
+            string grav = GridView1.Rows[i].FindControl("grado"); //Agarrar item viejo
+            string cod = GridView1.Rows[i].FindControl("codigo"); //Probablemente malo
+            string nom = GridView1.Rows[i].FindControl("nombre");
+            string gra = GridView1.Rows[i].FindControl("grado");
+            string dia = GridView1.Rows[i].FindControl("dia de Semana");
+            string ini = GridView1.Rows[i].FindControl("hora de Inicio");
+            string fin = GridView1.Rows[i].FindControl("hora de Final");
+            apiURL = apiURL + codv + "/" +grav + "/" cod + "/" + nom + "/" + gra + "/" + dia + "/" + ini + "/" + fin;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void eliminarMaestros()
+        {
+            string apiURL = Application["apiURL"].ToString() + "elimDocente/";
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            apiURL = apiURL + ced;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void eliminarEstdiantes()
+        {
+            string apiURL = Application["apiURL"].ToString() + "elimAlumno/";
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            apiURL = apiURL + ced;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void eliminarCursos()
+        {
+            string apiURL = Application["apiURL"].ToString() + "elimCurso/";
+            string cod = GridView1.Rows[i].FindControl("codigo"); //Probablemente malo
+            string gra = GridView1.Rows[i].FindControl("grado"); 
+            apiURL = apiURL + cod + "/" + gra;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void asignarMaestros()
+        {
+            string apiURL = Application["apiURL"].ToString() + "asignarProfe/";
+            string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            string cod = GridView1.Rows[i].FindControl("codigo");
+            string gra = GridView1.Rows[i].FindControl("grado");
+            apiURL = apiURL + ced + "/" + cod + "/" + gra;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void asignarEstdiantes()
+        {
+            string apiURL = Application["apiURL"].ToString() + "asignarAlumno/";
+            string nom = GridView1.Rows[i].FindControl("nombre"); //Probablemente malo
+            string ape = GridView1.Rows[i].FindControl("aoellido"); 
+            string cod = GridView1.Rows[i].FindControl("codigo"); 
+            string gra = GridView1.Rows[i].FindControl("grado");
+            apiURL = apiURL + nom + "/" + ape + "/" + cod + "/" + gra;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+
     }
 }
