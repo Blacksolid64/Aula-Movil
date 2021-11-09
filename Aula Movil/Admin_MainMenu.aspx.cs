@@ -27,8 +27,8 @@ namespace Aula_Movil
         {
             string apiURL = Application["apiURL"].ToString() + "profesores"; // Definición de la URL para el request
             WebClient client = new WebClient();
-            string respuesta = client.DownloadString(apiURL);
-            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
+            string apiResponse = client.DownloadString(apiURL);
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
             GridView1.DataBind();
         }
         protected void Gr1_OnRowEditing(object sender, GridViewEditEventArgs e)
@@ -56,7 +56,7 @@ namespace Aula_Movil
             string apiURL = Application["apiURL"].ToString() + "profesores";
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);            
-            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
             GridView1.DataBind();
 
         }
@@ -66,7 +66,7 @@ namespace Aula_Movil
             string apiURL = Application["apiURL"].ToString() + "estudiantes";
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
-            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
             GridView1.DataBind();
         }
 
@@ -75,7 +75,7 @@ namespace Aula_Movil
             string apiURL = Application["apiURL"].ToString() + "cursos";
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
-            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Curso>>(respuesta);
+            GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Curso>>(apiResponse);
             GridView1.DataBind();
         }
 
@@ -162,7 +162,7 @@ namespace Aula_Movil
             string dia = GridView1.Rows[i].FindControl("dia de Semana");
             string ini = GridView1.Rows[i].FindControl("hora de Inicio");
             string fin = GridView1.Rows[i].FindControl("hora de Final");
-            apiURL = apiURL + codv + "/" +grav + "/" cod + "/" + nom + "/" + gra + "/" + dia + "/" + ini + "/" + fin;
+            //apiURL = apiURL + codv + "/" +grav + "/" cod + "/" + nom + "/" + gra + "/" + dia + "/" + ini + "/" + fin;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
         }

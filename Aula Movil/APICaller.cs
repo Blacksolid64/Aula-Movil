@@ -15,11 +15,12 @@ namespace Aula_Movil
     {
         public APICaller(){}
 
-        private string RequestAPIData(String url)
-        {        
+        public string RequestAPIData(String apiURL)
+        {   
+
             WebClient client = new WebClient();
             string respuesta = client.DownloadString(apiURL);
-            return respuesta
+            return respuesta;
         }
     }
 }
