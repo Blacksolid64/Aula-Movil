@@ -18,10 +18,11 @@ namespace Aula_Movil
 
         protected void btn_Login_Click(object sender, EventArgs e)
         {
+           
           
             if (ValidateUser())
             {
-                Response.Redirect("Admin_MainMenu");
+               Response.Redirect("Admin_MainMenu");
             }
             else
             {
@@ -39,7 +40,6 @@ namespace Aula_Movil
             {
                 string respuesta = client.DownloadString(apiURL);
                 List<Usuario> otraRespuesta = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
-                Response.Write(otraRespuesta[0].contrasenna);
                 if (otraRespuesta[0].contrasenna == pw)
                 {
                     return true;

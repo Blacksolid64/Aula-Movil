@@ -8,6 +8,7 @@ namespace Aula_Movil
 {
     public class Usuario
     {
+        public string ID { set; get; }
         public string nombre { set; get; }
         public string apellido { set; get; }
         public string contrasenna { set; get; }
