@@ -186,13 +186,15 @@ namespace Aula_Movil
             string apiResponse = apiCaller.RequestAPIData(apiURL); */
         }
 
-        protected void eliminarMaestros(object sender, GridViewEditEventArgs e)
+        protected void eliminarMaestros(object sender, GridViewDeleteEventArgs e)
         {
+            GridViewRow row = GridView1.Rows[e.RowIndex];
             string apiURL = Application["apiURL"].ToString() + "elimDocente/";
-           // string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-           // apiURL = apiURL + ced;
+            string ced = (row.FindControl("lbl_OrigCed") as Label).Text;
+            apiURL = apiURL + ced;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
+            this.populateGridview();
         }
 
         protected void eliminarEstdiantes(object sender, GridViewEditEventArgs e)
