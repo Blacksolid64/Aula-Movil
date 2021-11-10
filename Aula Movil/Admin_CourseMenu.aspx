@@ -57,9 +57,32 @@
                 </EditItemTemplate>
                 </asp:TemplateField>
                 
-                
+                <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
             </Columns>
-
+            <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+    <tr>
+        <td>Nombre:<br/>
+            <asp:TextBox ID="txt_nuevoTitulo" runat="server" />
+        </td>
+        <td>Apellido:<br/>
+            <asp:TextBox ID="txt_nuevaClase" runat="server" />
+        </td>
+        <td>Cedula:<br/>
+            <asp:TextBox ID="txt_nuevaDescripcion" runat="server" />
+        </td>
+        <td>Contraseña:<br/>
+            <asp:TextBox ID="txt_nuevoCodigo" runat="server" />
+        </td>
+        <td>Correo:<br/>
+            <asp:TextBox ID="txt_nuevaFecha" runat="server" />
+        </td>
+        <td>
+            <asp:Button ID="btnAnnadir" runat="server" Text="Insertar" OnClick="agregarCurso" />
+        </td>
+    </tr>
+    </table>
+    <hr/>
+            
         </asp:GridView>
         
     </center>
