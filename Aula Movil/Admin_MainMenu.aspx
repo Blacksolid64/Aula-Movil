@@ -5,10 +5,9 @@
     <asp:GridView 
         ID="GridView1" runat="server" Height="217px" Width="557px"
         AutoGenerateColumns="false" 
-        OnRowEditing="Gr1_OnRowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="GridView1_RowUpdating" >
+        OnRowEditing="Gr1_OnRowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="editarMaestros" >
         <Columns>
             <asp:TemplateField HeaderText = "Nombre">
-
                 <ItemTemplate>
                     <asp:Label ID ="lbl_Nombre" runat="server" Text = '<%# Eval("Nombre") %>'></asp:Label>
                 </ItemTemplate>
@@ -18,7 +17,6 @@
                 </asp:TemplateField>
                 
              <asp:TemplateField HeaderText = "Apellido">
-
                 <ItemTemplate>
                     <asp:Label ID ="lbl_Apellido" runat="server" Text = '<%# Eval("Apellido") %>'></asp:Label>
                 </ItemTemplate>
@@ -26,7 +24,6 @@
                     <asp:TextBox ID ="txt_Apellido" runat="server" Text = '<%# Eval("Apellido") %>'></asp:TextBox>
                 </EditItemTemplate>
                 </asp:TemplateField>
-
                 <asp:TemplateField HeaderText = "Cedula">
                     <ItemTemplate>
                     <asp:Label ID ="lbl_Cedula" runat="server" Text = '<%# Eval("Cedula") %>'></asp:Label>
@@ -63,5 +60,28 @@
                 <asp:CommandField ButtonType="Link" ShowEditButton="true" ShowDeleteButton="true" />
         </Columns>    
     </asp:GridView>
+    <table border="1" cellpadding="0" cellspacing="0" style="border-collapse: collapse">
+    <tr>
+        <td>Nombre:<br/>
+            <asp:TextBox ID="txt_nuevoNombre" runat="server" />
+        </td>
+        <td>Apellido:<br/>
+            <asp:TextBox ID="txt_nuevoApellido" runat="server" />
+        </td>
+        <td>Cedula:<br/>
+            <asp:TextBox ID="txt_nuevaCedula" runat="server" />
+        </td>
+        <td>Contraseña:<br/>
+            <asp:TextBox ID="txt_nuevaContrasenna" runat="server" />
+        </td>
+        <td>Correo:<br/>
+            <asp:TextBox ID="txt_nuevoCorreo" runat="server" />
+        </td>
+        <td>
+            <asp:Button ID="btnAnnadir" runat="server" Text="Insertar" OnClick="agregarMaestros" />
+        </td>
+    </tr>
+    </table>
+    <hr/>
     </center>
 </asp:Content>

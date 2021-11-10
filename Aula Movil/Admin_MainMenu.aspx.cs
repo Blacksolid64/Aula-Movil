@@ -89,17 +89,23 @@ namespace Aula_Movil
             GridView1.DataBind();
         }
 
-        protected void agregarMaestros(object sender, GridViewEditEventArgs e)
+        protected void agregarMaestros(object sender, EventArgs e)
         {
             string apiURL = Application["apiURL"].ToString() + "nuevoDocente/";
-            /*string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-            string nom = GridView1.Rows[i].FindControl("nombre"); 
-            string cor = GridView1.Rows[i].FindControl("correo"); 
-            string con = GridView1.Rows[i].FindControl("contraseña"); 
-            string ape = GridView1.Rows[i].FindControl("apellido");
+            string ced = txt_nuevaCedula.Text;
+            string nom = txt_nuevoNombre.Text; 
+            string cor = txt_nuevoCorreo.Text; 
+            string con = txt_nuevaContrasenna.Text; 
+            string ape = txt_nuevoApellido.Text;
             apiURL = apiURL + ced + "/" + nom+ "/" + cor + "/" + con+ "/" + ape;
             APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);*/
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+            txt_nuevaCedula.Text = "";
+            txt_nuevoNombre.Text = "";
+            txt_nuevoCorreo.Text = "";
+            txt_nuevaContrasenna.Text = "";
+            txt_nuevoApellido.Text = "";
+            this.populateGridview();
 
         }
 
