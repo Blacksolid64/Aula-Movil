@@ -24,15 +24,28 @@ namespace Aula_Movil
             GR_Students.DataBind();
         }
 
+        protected void GR_Students_OnRowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GR_Students.EditIndex = e.NewEditIndex;
+            this.verEstudiantes();
+        }
+
+        protected void GR_Students_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GR_Students.EditIndex = -1;
+            this.verEstudiantes();
+        }
+
+
         protected void agregarEstdiantes(object sender, EventArgs e)
         {
             string apiURL = Application["apiURL"].ToString() + "nuevoAlumno/";
-            /* string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-             string nom = GridView1.Rows[i].FindControl("nombre");
-             string cor = GridView1.Rows[i].FindControl("correo");
-             string con = GridView1.Rows[i].FindControl("contraseña");
-             string ape = GridView1.Rows[i].FindControl("apellido");
-             string gra = GridView1.Rows[i].FindControl("grado");
+            /* string ced = GR_Students.Rows[i].FindControl("cedula"); //Probablemente malo
+             string nom = GR_Students.Rows[i].FindControl("nombre");
+             string cor = GR_Students.Rows[i].FindControl("correo");
+             string con = GR_Students.Rows[i].FindControl("contraseña");
+             string ape = GR_Students.Rows[i].FindControl("apellido");
+             string gra = GR_Students.Rows[i].FindControl("grado");
              apiURL = apiURL + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape + "/" + gra;
              APICaller apiCaller = new APICaller();
              string apiResponse = apiCaller.RequestAPIData(apiURL);*/
@@ -41,14 +54,14 @@ namespace Aula_Movil
         protected void editarEstdiantes(object sender, GridViewEditEventArgs e)
         {
             string apiURL = Application["apiURL"].ToString() + "updateAlumno/";
-            /* string nomv = GridView1.Rows[i].FindControl("nombre"); //Agarrar item viejo
-             string apev = GridView1.Rows[i].FindControl("apellido"); //Agarrar item viejo
-             string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-             string nom = GridView1.Rows[i].FindControl("nombre");
-             string cor = GridView1.Rows[i].FindControl("correo");
-             string con = GridView1.Rows[i].FindControl("contraseña");
-             string ape = GridView1.Rows[i].FindControl("apellido");
-             string gra = GridView1.Rows[i].FindControl("grado");
+            /* string nomv = GR_Students.Rows[i].FindControl("nombre"); //Agarrar item viejo
+             string apev = GR_Students.Rows[i].FindControl("apellido"); //Agarrar item viejo
+             string ced = GR_Students.Rows[i].FindControl("cedula"); //Probablemente malo
+             string nom = GR_Students.Rows[i].FindControl("nombre");
+             string cor = GR_Students.Rows[i].FindControl("correo");
+             string con = GR_Students.Rows[i].FindControl("contraseña");
+             string ape = GR_Students.Rows[i].FindControl("apellido");
+             string gra = GR_Students.Rows[i].FindControl("grado");
              apiURL = apiURL + nomv + "/" + apev+ "/" + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape + "/" + gra;
              APICaller apiCaller = new APICaller();
              string apiResponse = apiCaller.RequestAPIData(apiURL); */
@@ -57,7 +70,7 @@ namespace Aula_Movil
         protected void eliminarEstdiantes(object sender, GridViewEditEventArgs e)
         {
             string apiURL = Application["apiURL"].ToString() + "elimAlumno/";
-            // string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            // string ced = GR_Students.Rows[i].FindControl("cedula"); //Probablemente malo
             // apiURL = apiURL + ced;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);

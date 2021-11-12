@@ -2,9 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <center>
-        <asp:GridView ID="GR_Students" runat="server" Height="217px" Width="557px" AutoGenerateColumns="false">
+        <asp:GridView ID="GR_Students" runat="server" Height="217px" Width="557px" AutoGenerateColumns="false"
+            OnRowEditing="GR_Students_OnRowEditing"
+            OnRowCancelingEdit="GR_Students_RowCancelingEdit" 
+            OnRowUpdating="editarEstdiantes"
+            OnRowDeleting="eliminarEstdiantes">
             <Columns>
                 <asp:TemplateField HeaderText="Nombre">
+
                     <ItemTemplate>
                         <asp:Label ID="lbl_Nombre" runat="server" Text='<%# Eval("Nombre") %>'></asp:Label>
                     </ItemTemplate>
@@ -21,6 +26,7 @@
                         <asp:TextBox ID="txt_Apellido" runat="server" Text='<%# Eval("Apellido") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Cedula">
                     <ItemTemplate>
                         <asp:Label ID="lbl_Cedula" runat="server" Text='<%# Eval("Cedula") %>'></asp:Label>
