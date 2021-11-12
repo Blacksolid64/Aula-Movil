@@ -36,9 +36,15 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="Cedula original" Visible="false">
+                <asp:TemplateField HeaderText="Nombre original" Visible="false">
                     <ItemTemplate>
-                        <asp:Label ID="lbl_OrigCed" runat="server" Text='<%# Eval("Cedula") %>' Visible="false"></asp:Label>
+                        <asp:Label ID="lbl_OrigNombre" runat="server" Text='<%# Eval("Nombre") %>' Visible="false"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Apellido original" Visible="false">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_OrigApellido" runat="server" Text='<%# Eval("Apellido") %>' Visible="false"></asp:Label>
                     </ItemTemplate>
                 </asp:TemplateField>
 
@@ -51,12 +57,21 @@
                     </EditItemTemplate>
                 </asp:TemplateField>
 
-                <asp:TemplateField HeaderText="correo">
+                <asp:TemplateField HeaderText="Correo">
                     <ItemTemplate>
                         <asp:Label ID="lbl_correo" runat="server" Text='<%# Eval("correo") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
                         <asp:TextBox ID="txt_correo" runat="server" Text='<%# Eval("correo") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                </asp:TemplateField>
+
+                <asp:TemplateField HeaderText="Clase">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_clase" runat="server" Text='<%# Eval("clase") %>'></asp:Label>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:TextBox ID="txt_clase" runat="server" Text='<%# Eval("clase") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -79,6 +94,9 @@
                 </td>
                 <td>Correo:<br />
                     <asp:TextBox ID="txt_nuevoCorreo" runat="server" />
+                </td>
+                <td>Grado:<br />
+                    <asp:TextBox ID="txt_nuevoGrado" runat="server" />
                 </td>
                 <td>
                     <asp:Button ID="btnAnnadir" runat="server" Text="Insertar" OnClick="agregarEstdiantes" />

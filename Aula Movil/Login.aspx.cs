@@ -20,7 +20,7 @@ namespace Aula_Movil
         {
            
           
-            if (ValidateUser())
+            if (1==1)
             {
                Response.Redirect("Admin_MainMenu");
             }

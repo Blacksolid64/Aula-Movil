@@ -30,7 +30,7 @@ namespace Aula_Movil
             string apiResponse = client.DownloadString(apiURL);
             GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
             GridView1.DataBind();
-        } 
+        }
 
         protected void Gr1_OnRowEditing(object sender, GridViewEditEventArgs e)
         {
@@ -65,7 +65,7 @@ namespace Aula_Movil
         {
             string apiURL = Application["apiURL"].ToString() + "profesores";
             APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);            
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
             GridView1.DataSource = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
             GridView1.DataBind();
 
@@ -75,11 +75,11 @@ namespace Aula_Movil
         {
             string apiURL = Application["apiURL"].ToString() + "nuevoDocente/";
             string ced = txt_nuevaCedula.Text;
-            string nom = txt_nuevoNombre.Text; 
-            string cor = txt_nuevoCorreo.Text; 
-            string con = txt_nuevaContrasenna.Text; 
+            string nom = txt_nuevoNombre.Text;
+            string cor = txt_nuevoCorreo.Text;
+            string con = txt_nuevaContrasenna.Text;
             string ape = txt_nuevoApellido.Text;
-            apiURL = apiURL + ced + "/" + nom+ "/" + cor + "/" + con+ "/" + ape;
+            apiURL = apiURL + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
             txt_nuevaCedula.Text = "";
@@ -107,7 +107,7 @@ namespace Aula_Movil
             GridView1.EditIndex = -1;
             this.populateGridview();
         }
-      
+
         protected void eliminarMaestros(object sender, GridViewDeleteEventArgs e)
         {
             GridViewRow row = GridView1.Rows[e.RowIndex];
@@ -124,10 +124,10 @@ namespace Aula_Movil
         protected void asignarMaestros(object sender, GridViewEditEventArgs e)
         {
             string apiURL = Application["apiURL"].ToString() + "asignarProfe/";
-           // string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-           // string cod = GridView1.Rows[i].FindControl("codigo");
-           // string gra = GridView1.Rows[i].FindControl("grado");
-           // apiURL = apiURL + ced + "/" + cod + "/" + gra;
+            // string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
+            // string cod = GridView1.Rows[i].FindControl("codigo");
+            // string gra = GridView1.Rows[i].FindControl("grado");
+            // apiURL = apiURL + ced + "/" + cod + "/" + gra;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
         }

@@ -26,6 +26,19 @@ namespace Aula_Movil
             GR_Courses.DataBind();
         }
 
+        protected void GrCourses_OnRowEditing(object sender, GridViewEditEventArgs e)
+        {
+            GR_Courses.EditIndex = e.NewEditIndex;
+            this.verCursos();
+        }
+
+        protected void GrCourses_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        {
+            GR_Courses.EditIndex = -1;
+            this.verCursos();
+        }
+
+
         protected void agregarCursos(object sender, EventArgs e)
         {
             string apiURL = Application["apiURL"].ToString() + "nuevoCurso/";

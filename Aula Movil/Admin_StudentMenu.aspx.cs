@@ -12,7 +12,11 @@ namespace Aula_Movil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.verEstudiantes();
+            if (!this.IsPostBack)
+            {
+                this.verEstudiantes();
+            }
+            
         }
 
         protected void verEstudiantes()
@@ -24,13 +28,13 @@ namespace Aula_Movil
             GR_Students.DataBind();
         }
 
-        protected void GrCourses_OnRowEditing(object sender, GridViewEditEventArgs e)
+        protected void GR_Students_OnRowEditing(object sender, GridViewEditEventArgs e)
         {
             GR_Students.EditIndex = e.NewEditIndex;
             this.verEstudiantes();
         }
 
-        protected void GrCourses_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+        protected void GR_Students_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
         {
             GR_Students.EditIndex = -1;
             this.verEstudiantes();
@@ -38,14 +42,15 @@ namespace Aula_Movil
 
 
         protected void agregarEstdiantes(object sender, EventArgs e)
-        {
+        { //Error 404
             string apiURL = Application["apiURL"].ToString() + "nuevoAlumno/";
             string ced = txt_nuevaCedula.Text;
             string nom = txt_nuevoNombre.Text;
             string cor = txt_nuevoCorreo.Text;
             string con = txt_nuevaContrasenna.Text;
             string ape = txt_nuevoApellido.Text;
-            apiURL = apiURL + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape;
+            string grd = txt_nuevoGrado.Text;
+            apiURL = apiURL + ced + "/" + nom + "/" + cor + "/" + con + "/" + ape + "/" + grd;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
             txt_nuevaCedula.Text = "";
@@ -53,6 +58,7 @@ namespace Aula_Movil
             txt_nuevoCorreo.Text = "";
             txt_nuevaContrasenna.Text = "";
             txt_nuevoApellido.Text = "";
+            txt_nuevoGrado.Text = "";
             this.verEstudiantes();
         }
 
@@ -60,26 +66,30 @@ namespace Aula_Movil
         {
             GridViewRow row = GR_Students.Rows[e.RowIndex];
             string apiURL = Application["apiURL"].ToString() + "updateAlumno/";
-            string cedulaOriginal = (row.FindControl("lbl_OrigCed") as Label).Text;
+            string nombreOriginal = (row.FindControl("lbl_OrigNombre") as Label).Text;
+            string apellidoOriginal = (row.FindControl("lbl_OrigApellido") as Label).Text;
             string cedula = (row.FindControl("txt_cedula") as TextBox).Text;
             string nombre = (row.FindControl("txt_nombre") as TextBox).Text;
             string apellido = (row.FindControl("txt_Apellido") as TextBox).Text;
             string correo = (row.FindControl("txt_correo") as TextBox).Text;
             string contrasenna = (row.FindControl("txt_contrasenna") as TextBox).Text;
-            apiURL = apiURL + cedulaOriginal + "/" + cedula + "/" + nombre + "/" + correo + "/" + contrasenna + "/" + apellido;
+            string clase = (row.FindControl("txt_clase") as TextBox).Text;
+            apiURL = apiURL + nombreOriginal + "/" + apellidoOriginal + "/" + cedula + "/" + nombre + "/" + correo + "/" + contrasenna + "/" + apellido + "/" + clase;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
             GR_Students.EditIndex = -1;
             this.verEstudiantes();
         }
 
-        protected void eliminarEstdiantes(object sender, GridViewEditEventArgs e)
+        protected void eliminarEstdiantes(object sender, GridViewDeleteEventArgs e)
         {
+            GridViewRow row = GR_Students.Rows[e.RowIndex];
             string apiURL = Application["apiURL"].ToString() + "elimAlumno/";
-            // string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-            // apiURL = apiURL + ced;
+            string ced = (row.FindControl("lbl_Cedula") as Label).Text;
+            apiURL = apiURL + ced;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
+            this.verEstudiantes();
         }
 
     }
