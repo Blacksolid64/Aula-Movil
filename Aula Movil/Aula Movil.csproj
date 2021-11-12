@@ -127,7 +127,11 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="Estudiantes_TareasMenu.aspx" />
+    <Content Include="Estudiante_CalificarProfe.aspx" />
+    <Content Include="Estudiante_Chat.aspx" />
     <Content Include="Estudiante_MainMenu.aspx" />
+    <Content Include="Estudiante_NoticiasMenu.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -144,6 +148,8 @@
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Profesor_MainMenu.aspx" />
+    <Content Include="Profesor_NoticiasMenu.aspx" />
+    <Content Include="Profesor_TareasMenu.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -241,12 +247,40 @@
     <Compile Include="Estudiante.Master.designer.cs">
       <DependentUpon>Estudiante.Master</DependentUpon>
     </Compile>
+    <Compile Include="Estudiantes_TareasMenu.aspx.cs">
+      <DependentUpon>Estudiantes_TareasMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estudiantes_TareasMenu.aspx.designer.cs">
+      <DependentUpon>Estudiantes_TareasMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiante_CalificarProfe.aspx.cs">
+      <DependentUpon>Estudiante_CalificarProfe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estudiante_CalificarProfe.aspx.designer.cs">
+      <DependentUpon>Estudiante_CalificarProfe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiante_Chat.aspx.cs">
+      <DependentUpon>Estudiante_Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estudiante_Chat.aspx.designer.cs">
+      <DependentUpon>Estudiante_Chat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Estudiante_MainMenu.aspx.cs">
       <DependentUpon>Estudiante_MainMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Estudiante_MainMenu.aspx.designer.cs">
       <DependentUpon>Estudiante_MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiante_NoticiasMenu.aspx.cs">
+      <DependentUpon>Estudiante_NoticiasMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estudiante_NoticiasMenu.aspx.designer.cs">
+      <DependentUpon>Estudiante_NoticiasMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -271,6 +305,20 @@
     </Compile>
     <Compile Include="Profesor_MainMenu.aspx.designer.cs">
       <DependentUpon>Profesor_MainMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor_NoticiasMenu.aspx.cs">
+      <DependentUpon>Profesor_NoticiasMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor_NoticiasMenu.aspx.designer.cs">
+      <DependentUpon>Profesor_NoticiasMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor_TareasMenu.aspx.cs">
+      <DependentUpon>Profesor_TareasMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor_TareasMenu.aspx.designer.cs">
+      <DependentUpon>Profesor_TareasMenu.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">

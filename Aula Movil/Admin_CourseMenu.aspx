@@ -3,8 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <center>
 
-        <asp:GridView ID="GR_Courses" runat="server" AutoGenerateColumns="false" Height="217px" Width="557px">
-
+        <asp:GridView ID="GR_Courses" runat="server" AutoGenerateColumns="false"
+            OnRowEditing="GrCourses_OnRowEditing"
+            OnRowCancelingEdit="GrCourses_RowCancelingEdit"
+            OnRowUpdating="editarCursos"
+            OnRowDeleting="eliminarCursos"
+            Height="217px" Width="557px">
             <Columns>
 
                 <asp:TemplateField HeaderText="Nombre">
@@ -40,12 +44,18 @@
                     </ItemTemplate>
                 </asp:TemplateField>
 
+                <asp:TemplateField HeaderText="Clase original" Visible="false">
+                    <ItemTemplate>
+                        <asp:Label ID="lbl_OrigCls" runat="server" Text='<%# Eval("Clase") %>' Visible="false"></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+
                 <asp:TemplateField HeaderText="Hora de inicio">
                     <ItemTemplate>
                         <asp:Label ID="lbl_HoraInicio" runat="server" Text='<%# Eval("HoraInicio") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_HoraInicio" runat="server" Text='<%# Eval("HoraInicio") %>'></asp:TextBox>
+                        <asp:TextBox ID="txt_HoraInicio" runat="server" TextMode="Time" format="HH:MM:SS" Text='<%# Eval("HoraInicio") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -54,7 +64,7 @@
                         <asp:Label ID="lbl_HoraFinal" runat="server" Text='<%# Eval("HoraFin") %>'></asp:Label>
                     </ItemTemplate>
                     <EditItemTemplate>
-                        <asp:TextBox ID="txt_HoraFinal" runat="server" Text='<%# Eval("HoraFin") %>'></asp:TextBox>
+                        <asp:TextBox ID="txt_HoraFinal" runat="server" TextMode="Time" format="HH:MM:SS" Text='<%# Eval("HoraFin") %>'></asp:TextBox>
                     </EditItemTemplate>
                 </asp:TemplateField>
 
@@ -83,10 +93,10 @@
                     <asp:TextBox ID="txt_nuevoCodigo" runat="server" />
                 </td>
                 <td>Hora de Inicio:<br />
-                    <asp:TextBox ID="txt_nuevaHoraInicio" runat="server" />
+                    <asp:TextBox ID="txt_nuevaHoraInicio" TextMode="Time" format="HH:MM:SS" runat="server" />
                 </td>
                 <td>Hora de Finalización:<br />
-                    <asp:TextBox ID="txt_nuevaHoraFinal" runat="server" />
+                    <asp:TextBox ID="txt_nuevaHoraFinal" TextMode="Time" format="HH:MM:SS" runat="server" />
                 </td>
                 <td>Dia de la semana:<br />
                     <asp:TextBox ID="txt_nuevoDiaSem" runat="server" />

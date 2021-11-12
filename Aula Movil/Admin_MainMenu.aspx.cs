@@ -143,15 +143,7 @@ namespace Aula_Movil
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);*/
         }
-        protected void tipoUsuario(object sender, GridViewEditEventArgs e)
-        {
-            //GridViewRow row = GridView1.Rows[e.RowIndex];
-            string apiURL = Application["apiURL"].ToString() + "tipoUsuario/";
-            string idUsuario; //Hay que agarrarlo de la información que devuelve el linklogIn
-            //apiURL = apiURL + idUsuario;
-            APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);
-        }
+        
 
         protected void cursosXEstudiante(object sender, GridViewEditEventArgs e)
         {

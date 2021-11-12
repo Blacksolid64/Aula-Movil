@@ -58,5 +58,16 @@ namespace Aula_Movil
             return false;
         }
 
+        protected string tipoUsuario(string id)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "tipoUsuario/";
+            string idUsuario; //Hay que agarrarlo de la información que devuelve el linklogIn
+            //apiURL = apiURL + idUsuario;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+            return apiResponse;
+        }
+
     }
 }

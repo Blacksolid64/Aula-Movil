@@ -5,7 +5,9 @@
         <asp:GridView
             ID="GridView1" runat="server" Height="217px" Width="557px"
             AutoGenerateColumns="false"
-            OnRowEditing="Gr1_OnRowEditing" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowUpdating="editarMaestros"
+            OnRowEditing="Gr1_OnRowEditing"
+            OnRowCancelingEdit="GridView1_RowCancelingEdit"
+            OnRowUpdating="editarMaestros"
             OnRowDeleting="eliminarMaestros">
             <Columns>
                 <asp:TemplateField HeaderText="Nombre">
