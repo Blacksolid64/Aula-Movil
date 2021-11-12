@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Admin_AsignationMenu.aspx" />
     <Content Include="Admin_CourseMenu.aspx" />
     <Content Include="Admin_MainMenu.aspx" />
     <Content Include="Admin_StudentMenu.aspx" />
@@ -178,6 +179,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_AsignationMenu.aspx.cs">
+      <DependentUpon>Admin_AsignationMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_AsignationMenu.aspx.designer.cs">
+      <DependentUpon>Admin_AsignationMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_CourseMenu.aspx.cs">
       <DependentUpon>Admin_CourseMenu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
