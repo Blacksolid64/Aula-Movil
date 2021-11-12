@@ -143,6 +143,141 @@ namespace Aula_Movil
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);*/
         }
+        protected void tipoUsuario(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "tipoUsuario/";
+            string idUsuario; //Hay que agarrarlo de la información que devuelve el linklogIn
+            //apiURL = apiURL + idUsuario;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void cursosXEstudiante(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "cursosestudiante/";
+            //string ced = (row.FindControl() as Label).Text; //cedula
+            //apiURL = apiURL + ced;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void profesorXcurso(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "cursosprofesor/";
+           // string correo = (row.FindControl() as Label).Text; //correo del profesor
+           // apiURL = apiURL + correo;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void estudiantesXcursos(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "cursosestudiante/";
+            //string ced = (row.FindControl() as Label).Text; //cedula
+            //apiURL = apiURL + ced;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void cursosXProfesor(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "cursosprofesor/";
+            //string correo = (row.FindControl() as Label).Text; //correo del profesor
+            //apiURL = apiURL + correo;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void nuevaTarea(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "nuevaTarea/";
+            //string codigo = (row.FindControl() as Label).Text; //codigo del curso
+            //string grado = (row.FindControl() as Label).Text; //grado del curso
+            //string codigoTarea = (row.FindControl() as Label).Text; //codigo de la tarea
+            //string titulo = (row.FindControl() as Label).Text; //titulo de la tarea
+            //string contenido = (row.FindControl() as Label).Text;
+            //string fechaEntrega = (row.FindControl() as Label).Text;
+            //apiURL = apiURL + codigo + +grado + +codigoTarea + +titulo + +contenido + +fechaEntrega;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void nuevaNoticia(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "nuevaNoticia/";
+            //string codigo = (row.FindControl() as Label).Text; //codigo del curso
+            //string grado = (row.FindControl() as Label).Text; //grado del curso
+            //apiURL = apiURL + codigo + +grado;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void verTareas(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "tareas/";
+            //string codigo = (row.FindControl() as Label).Text; //codigo del curso
+            //string grado = (row.FindControl() as Label).Text; //grado del curso
+            //apiURL = apiURL + codigo + +grado;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void verNoticias(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "noticias/";
+            //string codigo = (row.FindControl() as Label).Text; //codigo del curso
+            //string grado = (row.FindControl() as Label).Text; //grado del curso
+            //string titulo = (row.FindControl() as Label).Text; //titulo de la tarea
+            //string contenido = (row.FindControl() as Label).Text;
+            //string fechaEntrega = (row.FindControl() as Label).Text;
+            //apiURL = apiURL + codigo + +grado + +titulo + +contenido + +fechaEntrega;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void verChat(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "chat/";
+            //string codigo = (row.FindControl() as Label).Text; //codigo del curso
+            //string grado = (row.FindControl() as Label).Text; //grado del curso
+            //apiURL = apiURL + codigo + +grado;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void publicarMensaje(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "publicaMsg/";
+            //string codigo = (row.FindControl() as Label).Text; //codigo del curso
+            //string grado = (row.FindControl() as Label).Text; //grado del curso
+            //string correo = (row.FindControl() as Label).Text; //correo del escritor
+            //string mensaje = (row.FindControl() as Label).Text; //mensaje para el chat
+            //apiURL = apiURL + codigo + +grado + +correo + +mensaje;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
+
+        protected void calificarDocente(object sender, GridViewEditEventArgs e)
+        {
+            //GridViewRow row = GridView1.Rows[e.RowIndex];
+            string apiURL = Application["apiURL"].ToString() + "votarNota/";
+            //string cedula = (row.FindControl() as Label).Text;// cedula del maestro
+            //string nota = (row.FindControl() as Label).Text; //nota nueva
+            //apiURL = apiURL + codigo + +grado;
+            APICaller apiCaller = new APICaller();
+            string apiResponse = apiCaller.RequestAPIData(apiURL);
+        }
 
     }
 }
