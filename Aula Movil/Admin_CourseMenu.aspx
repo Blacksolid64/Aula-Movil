@@ -93,10 +93,10 @@
                     <asp:TextBox ID="txt_nuevoCodigo" runat="server" />
                 </td>
                 <td>Hora de Inicio:<br />
-                    <asp:TextBox ID="txt_nuevaHoraInicio" TextMode="Time" format="HH:MM:SS" runat="server" />
+                    <asp:TextBox ID="txt_nuevaHoraInicio" runat="server" />
                 </td>
                 <td>Hora de Finalización:<br />
-                    <asp:TextBox ID="txt_nuevaHoraFinal" TextMode="Time" format="HH:MM:SS" runat="server" />
+                    <asp:TextBox ID="txt_nuevaHoraFinal" runat="server" />
                 </td>
                 <td>Dia de la semana:<br />
                     <asp:TextBox ID="txt_nuevoDiaSem" runat="server" />

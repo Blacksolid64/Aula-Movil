@@ -118,33 +118,7 @@ namespace Aula_Movil
             string apiResponse = apiCaller.RequestAPIData(apiURL);
             this.populateGridview();
         }
-
-
-        //Asignaciones
-        protected void asignarMaestros(object sender, GridViewEditEventArgs e)
-        {
-            string apiURL = Application["apiURL"].ToString() + "asignarProfe/";
-            // string ced = GridView1.Rows[i].FindControl("cedula"); //Probablemente malo
-            // string cod = GridView1.Rows[i].FindControl("codigo");
-            // string gra = GridView1.Rows[i].FindControl("grado");
-            // apiURL = apiURL + ced + "/" + cod + "/" + gra;
-            APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);
-        }
-
-        protected void asignarEstdiantes(object sender, GridViewEditEventArgs e)
-        {
-            /*string apiURL = Application["apiURL"].ToString() + "asignarAlumno/";
-            string nom = GridView1.Rows[i].FindControl("nombre"); //Probablemente malo
-            string ape = GridView1.Rows[i].FindControl("aoellido"); 
-            string cod = GridView1.Rows[i].FindControl("codigo"); 
-            string gra = GridView1.Rows[i].FindControl("grado");
-            apiURL = apiURL + nom + "/" + ape + "/" + cod + "/" + gra;
-            APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);*/
-        }
         
-
         protected void cursosXEstudiante(object sender, GridViewEditEventArgs e)
         {
             //GridViewRow row = GridView1.Rows[e.RowIndex];

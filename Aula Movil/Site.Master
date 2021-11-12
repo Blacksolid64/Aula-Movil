@@ -53,7 +53,7 @@
                         <li><a runat="server" href="Admin_CourseMenu">Gestión de cursos</a></li>
                         <li><a runat="server" href="Admin_StudentMenu">Gestión de estudiantes</a></li>
                         <li><a runat="server" href="Admin_MainMenu">Gestión de docentes</a></li>
-                        <li><a runat="server" href="#">Asignación</a></li>
+                        <li><a runat="server" href="Admin_AsignationMenu">Asignación</a></li>
                     </ul>
                 </div>
             </div>
