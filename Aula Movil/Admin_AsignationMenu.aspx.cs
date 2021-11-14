@@ -54,7 +54,7 @@ namespace Aula_Movil
             GridViewRow row = GR_AsignationTeacher.Rows[e.NewSelectedIndex];
             string apiURL = Application["apiURL"].ToString() + "asignarProfe/";
             string cod = (row.FindControl("Drp_Cursos") as DropDownList).SelectedValue.ToString();
-            string ced = (row.FindControl("lbl_Cedula") as Label).Text; //Probablemente malo
+            string ced = (row.FindControl("lbl_Cedula") as Label).Text; 
             string gra = (row.FindControl("txt_Grados") as TextBox).Text;
             apiURL = apiURL + ced + "/" + cod + "/" + gra;
             APICaller apiCaller = new APICaller();

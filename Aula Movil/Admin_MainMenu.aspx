@@ -85,6 +85,6 @@
                 </td>
             </tr>
         </table>
-        <hr />
+        <hr/>
     </center>
 </asp:Content>

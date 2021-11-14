@@ -18,11 +18,25 @@ namespace Aula_Movil
 
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-           
-          
-            if (1==1)
+
+
+            if (ValidateUser())
             {
-               Response.Redirect("Admin_MainMenu");
+                switch (Session["UserType"])
+                {
+                    case "profesor":
+                        Response.Redirect("Profesor_MainMenue");
+                        break;
+                    case "estudiante":
+                        Response.Redirect("Estudiante_MainMenu");
+                        break;
+                    case "admin":
+                        Response.Redirect("Admin_MainMenu");
+                        break;
+                    default:
+                        Response.Redirect("Login");
+                        break;
+                }
             }
             else
             {
@@ -34,13 +48,16 @@ namespace Aula_Movil
         {
             String email = txt_Username.Text;
             String pw = txt_password.Text;
-            string apiURL = Application["apiURL"].ToString() +"logIn/"+email;
+            string apiURL = Application["apiURL"].ToString() + "logIn/" + email;
             WebClient client = new WebClient();
             try
             {
                 string respuesta = client.DownloadString(apiURL);
-                List<Usuario> otraRespuesta = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
-                if (otraRespuesta[0].contrasenna == pw)
+                List<Usuario> Respuesta_deserealizada = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
+                Session["UserCedula"] = Respuesta_deserealizada[0].cedula;
+                Session["UserEmail"] = email;
+                Session["UserType"] = tipoUsuario(Respuesta_deserealizada[0].ID);
+                if (Respuesta_deserealizada[0].contrasenna == pw)
                 {
                     return true;
                 }
@@ -60,13 +77,13 @@ namespace Aula_Movil
 
         protected string tipoUsuario(string id)
         {
-            //GridViewRow row = GridView1.Rows[e.RowIndex];
             string apiURL = Application["apiURL"].ToString() + "tipoUsuario/";
-            string idUsuario; //Hay que agarrarlo de la información que devuelve el linklogIn
-            //apiURL = apiURL + idUsuario;
+            apiURL = apiURL + id;
             APICaller apiCaller = new APICaller();
             string apiResponse = apiCaller.RequestAPIData(apiURL);
-            return apiResponse;
+            List<Usuario> tipoUsuario = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
+            string TU = tipoUsuario[0].tipousuario;
+            return TU;
         }
 
     }

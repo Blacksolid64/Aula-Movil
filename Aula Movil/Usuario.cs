@@ -16,6 +16,7 @@ namespace Aula_Movil
         public string correo { set; get; }
         public string calificacion { set; get; }
         public string clase { set; get; }
+        public string tipousuario { set; get; }
         public List<Usuario> parseUsuario(String respuesta)
         {
             return (new JavaScriptSerializer()).Deserialize<List<Usuario>>(respuesta);
