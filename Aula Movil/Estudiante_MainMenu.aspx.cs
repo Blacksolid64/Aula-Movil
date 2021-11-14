@@ -36,6 +36,7 @@ namespace Aula_Movil
             Session["clase"] = (row.FindControl("lbl_Clase") as Label).Text;
             Session["codigo"] = (row.FindControl("lbl_Codigo") as Label).Text;
             Response.Write(MessageBox.CreateMessageBox("Usted seleccionó el curso " + Session["nombre"].ToString()));
+            (Master.FindControl("lbl_selectedCourse") as Label).Text = Session["nombre"].ToString();
         }
     }
 }

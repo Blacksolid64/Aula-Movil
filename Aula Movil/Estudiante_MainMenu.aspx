@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Estudiante.Master" AutoEventWireup="true" CodeBehind="Estudiante_MainMenu.aspx.cs" Inherits="Aula_Movil.Estudiante_MainMenu" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:GridView ID="GR_Std"  AutoGenerateSelectButton="true" OnSelectedIndexChanging="GR_Std_SelectedIndexChanging" runat="server">
+    <asp:GridView ID="GR_Std" AutoGenerateColumns="false"  AutoGenerateSelectButton="true" OnSelectedIndexChanging="GR_Std_SelectedIndexChanging" runat="server">
         <Columns>
             <asp:TemplateField HeaderText="Nombre">
                     <ItemTemplate>

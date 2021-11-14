@@ -13,7 +13,7 @@ namespace Aula_Movil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            Session.Contents.RemoveAll();
         }
 
         protected void btn_Login_Click(object sender, EventArgs e)
