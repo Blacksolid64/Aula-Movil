@@ -13,19 +13,17 @@ namespace Aula_Movil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void btn_Login_Click(object sender, EventArgs e)
         {
-
-
             if (ValidateUser())
             {
                 switch (Session["UserType"])
                 {
                     case "profesor":
-                        Response.Redirect("Profesor_MainMenue");
+                        Response.Redirect("Profesor_MainMenu");
                         break;
                     case "estudiante":
                         Response.Redirect("Estudiante_MainMenu");
@@ -34,13 +32,17 @@ namespace Aula_Movil
                         Response.Redirect("Admin_MainMenu");
                         break;
                     default:
-                        Response.Redirect("Login");
+                        Response.Write(MessageBox.CreateMessageBox("Su usuario no coincide con ninguno de los tipos en la base de datos"));
+                        txt_password.Text = "";
+                        txt_Username.Text = "";
                         break;
                 }
             }
             else
             {
-                Response.Redirect("Login");
+                Response.Write(MessageBox.CreateMessageBox("Su usuario no se encuentra en el sistema/Las credenciales ingresadas no son correctas"));
+                txt_password.Text = "";
+                txt_Username.Text = "";
             }
         }
 
@@ -68,8 +70,10 @@ namespace Aula_Movil
 
             }
             catch (Exception e)
-            { 
-                Response.Write("Oh");
+            {
+                Response.Write(MessageBox.CreateMessageBox("Error"));
+                txt_password.Text = "";
+                txt_Username.Text = "";
             }
          
             return false;

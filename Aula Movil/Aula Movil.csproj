@@ -292,6 +292,8 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MessageBox.cs" />
+    <Compile Include="Noticia.cs" />
     <Compile Include="Profesor.Master.cs">
       <DependentUpon>Profesor.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

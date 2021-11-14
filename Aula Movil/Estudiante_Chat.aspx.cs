@@ -38,7 +38,7 @@ namespace Aula_Movil
 
         }
 
-        protected void publicarMensaje(object sender, EventArgs e)
+        protected void publicarMensaje(object sender, EventArgs e) //Si el chat no tiene nada, se queda pegadisimo
         {
             string apiURL = Application["apiURL"].ToString() + "publicaMsg/";
             string codigo = Session["codigo"].ToString(); //codigo del curso
