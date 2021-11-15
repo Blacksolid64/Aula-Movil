@@ -11,16 +11,16 @@ namespace Aula_Movil
 {
 
 
-    public partial class Profesor_MainMenu
+    public partial class Profesor_Estudiantes
     {
 
         /// <summary>
-        /// GR_Tch control.
+        /// GridView1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GR_Tch;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

@@ -147,6 +147,8 @@
     <Content Include="Estudiante.Master" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
+    <Content Include="Profesor_Chat.aspx" />
+    <Content Include="Profesor_Estudiantes.aspx" />
     <Content Include="Profesor_MainMenu.aspx" />
     <Content Include="Profesor_NoticiasMenu.aspx" />
     <Content Include="Profesor_TareasMenu.aspx" />
@@ -300,6 +302,20 @@
     </Compile>
     <Compile Include="Profesor.Master.designer.cs">
       <DependentUpon>Profesor.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor_Chat.aspx.cs">
+      <DependentUpon>Profesor_Chat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor_Chat.aspx.designer.cs">
+      <DependentUpon>Profesor_Chat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profesor_Estudiantes.aspx.cs">
+      <DependentUpon>Profesor_Estudiantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profesor_Estudiantes.aspx.designer.cs">
+      <DependentUpon>Profesor_Estudiantes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Profesor_MainMenu.aspx.cs">
       <DependentUpon>Profesor_MainMenu.aspx</DependentUpon>
