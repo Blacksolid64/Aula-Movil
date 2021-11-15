@@ -71,7 +71,7 @@ namespace Aula_Movil
             }
             catch (Exception ex)
             {
-                Response.Write(MessageBox.CreateMessageBox("Error"));
+                Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString())); ;
                 txt_password.Text = "";
                 txt_Username.Text = "";
             }

@@ -12,31 +12,49 @@ namespace Aula_Movil
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
+            try
             {
-                this.estudiantesXcursos();
+                if (!this.IsPostBack)
+                {
+                    this.estudiantesXcursos();
+                }
             }
+            catch (Exception ex) { Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString())); }
         }
 
         protected void estudiantesXcursos()
         {
-            string apiURL = Application["apiURL"].ToString() + "cursos/estudiante/";
-            string ced = Session["UserCedula"].ToString();
-            apiURL = apiURL + ced;
-            APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);
-            GR_Std.DataSource = (new JavaScriptSerializer()).Deserialize<List<Curso>>(apiResponse);
-            GR_Std.DataBind();
+            try
+            {
+                string apiURL = Application["apiURL"].ToString() + "cursos/estudiante/";
+                string ced = Session["UserCedula"].ToString();
+                apiURL = apiURL + ced;
+                APICaller apiCaller = new APICaller();
+                string apiResponse = apiCaller.RequestAPIData(apiURL);
+                GR_Std.DataSource = (new JavaScriptSerializer()).Deserialize<List<Curso>>(apiResponse);
+                GR_Std.DataBind();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString()));
+            }
         }
 
         protected void GR_Std_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-            GridViewRow row = GR_Std.Rows[e.NewSelectedIndex];
-            Session["nombre"] = (row.FindControl("lbl_Nombre") as Label).Text;
-            Session["clase"] = (row.FindControl("lbl_Clase") as Label).Text;
-            Session["codigo"] = (row.FindControl("lbl_Codigo") as Label).Text;
-            Response.Write(MessageBox.CreateMessageBox("Usted seleccionó el curso " + Session["nombre"].ToString()));
-            (Master.FindControl("lbl_selectedCourse") as Label).Text = Session["nombre"].ToString();
+            try
+            {
+                GridViewRow row = GR_Std.Rows[e.NewSelectedIndex];
+                Session["nombre"] = (row.FindControl("lbl_Nombre") as Label).Text;
+                Session["clase"] = (row.FindControl("lbl_Clase") as Label).Text;
+                Session["codigo"] = (row.FindControl("lbl_Codigo") as Label).Text;
+                Response.Write(MessageBox.CreateMessageBox("Usted seleccionó el curso " + Session["nombre"].ToString()));
+                (Master.FindControl("lbl_selectedCourse") as Label).Text = Session["nombre"].ToString();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString()));
+            }
         }
     }
 }
