@@ -14,7 +14,14 @@ namespace Aula_Movil
         {
             if (!this.IsPostBack)
             {
-                this.verChat();
+                try
+                {
+                    this.verChat();
+                }
+                catch (Exception ex)
+                {
+                    Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString()));
+                }
             }
         }
 
@@ -31,25 +38,33 @@ namespace Aula_Movil
                 GR_Chat.DataSource = (new JavaScriptSerializer()).Deserialize<List<Chat>>(apiResponse);
                 GR_Chat.DataBind();
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
-                Response.Write("Not cool");
+                Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString()));
             }
 
         }
 
         protected void publicarMensaje(object sender, EventArgs e) //Si el chat no tiene mensajes, se queda pegadisimo
         {
-            string apiURL = Application["apiURL"].ToString() + "publicaMsg/";
-            string codigo = Session["codigo"].ToString(); //codigo del curso
-            string grado = Session["clase"].ToString(); //grado del curso
-            string correo = Session["UserEmail"].ToString(); //correo del escritor
-            string mensaje = txt_mensajeNuevo.Text; //mensaje para el chat
-            apiURL = apiURL + codigo + "/" + grado + "/" + correo + "/" + mensaje;
-            APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);
-            txt_mensajeNuevo.Text = " ";
-            this.verChat();
+
+            try
+            {
+                string apiURL = Application["apiURL"].ToString() + "publicaMsg/";
+                string codigo = Session["codigo"].ToString(); //codigo del curso
+                string grado = Session["clase"].ToString(); //grado del curso
+                string correo = Session["UserEmail"].ToString(); //correo del escritor
+                string mensaje = txt_mensajeNuevo.Text; //mensaje para el chat
+                apiURL = apiURL + codigo + "/" + grado + "/" + correo + "/" + mensaje;
+                APICaller apiCaller = new APICaller();
+                string apiResponse = apiCaller.RequestAPIData(apiURL);
+                txt_mensajeNuevo.Text = " ";
+                this.verChat();
+            }
+            catch (Exception ex)
+            {
+                Response.Write(MessageBox.CreateMessageBox("Error: " + ex.ToString()));
+            }
         }
     }
 }

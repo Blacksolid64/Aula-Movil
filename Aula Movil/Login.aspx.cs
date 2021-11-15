@@ -69,7 +69,7 @@ namespace Aula_Movil
                 }
 
             }
-            catch (Exception e)
+            catch (Exception ex)
             {
                 Response.Write(MessageBox.CreateMessageBox("Error"));
                 txt_password.Text = "";
@@ -81,13 +81,20 @@ namespace Aula_Movil
 
         protected string tipoUsuario(string id)
         {
-            string apiURL = Application["apiURL"].ToString() + "tipoUsuario/";
-            apiURL = apiURL + id;
-            APICaller apiCaller = new APICaller();
-            string apiResponse = apiCaller.RequestAPIData(apiURL);
-            List<Usuario> tipoUsuario = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
-            string TU = tipoUsuario[0].tipousuario;
-            return TU;
+            try
+            {
+                string apiURL = Application["apiURL"].ToString() + "tipoUsuario/";
+                apiURL = apiURL + id;
+                APICaller apiCaller = new APICaller();
+                string apiResponse = apiCaller.RequestAPIData(apiURL);
+                List<Usuario> tipoUsuario = (new JavaScriptSerializer()).Deserialize<List<Usuario>>(apiResponse);
+                string TU = tipoUsuario[0].tipousuario;
+                return TU;
+            }
+            catch (Exception ex) { 
+                Response.Write(MessageBox.CreateMessageBox(ex.ToString()));
+                return null;
+            }
         }
 
     }
