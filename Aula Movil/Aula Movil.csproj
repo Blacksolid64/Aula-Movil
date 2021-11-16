@@ -145,6 +145,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Profesor.Master" />
     <Content Include="Estudiante.Master" />
+    <None Include="Properties\PublishProfiles\AulaMovil20211115135157 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Login.aspx" />
     <Content Include="Profesor_Chat.aspx" />

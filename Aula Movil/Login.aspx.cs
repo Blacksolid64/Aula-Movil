@@ -28,7 +28,7 @@ namespace Aula_Movil
                     case "estudiante":
                         Response.Redirect("Estudiante_MainMenu");
                         break;
-                    case "admin":
+                    case "administrador":
                         Response.Redirect("Admin_MainMenu");
                         break;
                     default:
